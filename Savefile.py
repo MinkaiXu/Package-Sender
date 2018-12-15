@@ -65,7 +65,7 @@ class Ui_saveInFile(object):
 
     def retranslateUi(self, saveInFile):
         _translate = QtCore.QCoreApplication.translate
-        saveInFile.setWindowTitle(_translate("saveInFile", "Save in PCAP"))
+        saveInFile.setWindowTitle(_translate("saveInFile", "以PCAP形式保存"))
         self.label.setText(_translate("saveInFile", "选取文件"))
         self.filebrowser.setText(_translate("saveInFile", "..."))
         self.fileappend.setText(_translate("saveInFile", "保存"))
