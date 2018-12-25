@@ -1,0 +1,3 @@
+实验机系统环境为windows10 x64，理论上64位windows7 8 10都行
+使用python2.7.13 x64
+需安装PyCrypto scapy struct socket PyQt5，均为python2.7上的最高版本

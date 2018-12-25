@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>readpcap</class>
+ <widget class="QWidget" name="readpcap">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>691</width>
+    <height>826</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QCheckBox" name="pcapudp">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>105</y>
+     <width>81</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Times New Roman</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>UDP</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="pcapdstipread">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>135</y>
+     <width>171</width>
+     <height>24</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pcapsend">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>785</y>
+     <width>161</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial Black</family>
+     <pointsize>11</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>发送数据包</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="pcapsrcport">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>165</y>
+     <width>121</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Times New Roman</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>源端口</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="pcaparp">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>105</y>
+     <width>101</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Times New Roman</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>ARP</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="pcapsrcportread">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>165</y>
+     <width>171</width>
+     <height>24</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="pcapdstportread">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>165</y>
+     <width>171</width>
+     <height>24</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="pcaptcp">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>105</y>
+     <width>81</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Times New Roman</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>TCP</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pcapfilechoose">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>15</y>
+     <width>31</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>...</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="pcapseqnum">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>485</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="pcapdstip">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>135</y>
+     <width>151</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Times New Roman</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>目的IP地址</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pcapfilter">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>235</y>
+     <width>221</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial Black</family>
+     <pointsize>11</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>查看过滤后数据包</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pcaptodisplay">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>485</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>确认</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="pcapip">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>105</y>
+     <width>61</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Times New Roman</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>IP</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>95</y>
+     <width>61</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>12</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>协议</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>5</y>
+     <width>81</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial Black</family>
+     <pointsize>16</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>文件：</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="pcapdstport">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>165</y>
+     <width>121</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Times New Roman</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>目的端口</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="pcapsrcipread">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>135</y>
+     <width>171</width>
+     <height>24</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="pcapdata">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>195</y>
+     <width>131</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Times New Roman</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>数据片段</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="pcapicmp">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>105</y>
+     <width>91</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Times New Roman</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>ICMP</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>55</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial Black</family>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+     <underline>true</underline>
+    </font>
+   </property>
+   <property name="text">
+    <string>包过滤</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="pcapfilename">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>15</y>
+     <width>481</width>
+     <height>24</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="pcapsrcip">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>135</y>
+     <width>121</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Times New Roman</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>源IP地址</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>480</y>
+     <width>281</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>12</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>选择要发送的数据包编号：</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="pcapdataread">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>193</y>
+     <width>541</width>
+     <height>31</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="pcapdisplaydigest">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>280</y>
+     <width>671</width>
+     <height>191</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="pcapdisplay">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>520</y>
+     <width>671</width>
+     <height>251</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

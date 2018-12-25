@@ -132,7 +132,8 @@ def ScanPackets(packetls):
         elif PacketNewLife.decideProtol(packetls[i]) == 2: # IP(2)
             tmp = ''
             tmp += str(packetls[i].time) + "  IPv"
-            tmp += str(packetls[i].payload.version) + ", Src : " + packetls[i].payload.src + " , Dst : " + packetls[i].payload.dst
+            tmp += str(packetls[i].payload.version) + ", Src : " + packetls[i].payload.src +\
+                   " , Dst : " + packetls[i].payload.dst
             feedback.append(tmp)
         elif PacketNewLife.decideProtol(packetls[i]) == 3: # ICMP(3):
             tmp = ''
