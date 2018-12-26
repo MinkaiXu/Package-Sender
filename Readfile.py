@@ -7,7 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 import PCAPfilter,SockPcap
-from PacketNewLife import BringNewLife,decideProtol
+from Sniffer import BringNewLife,decideProtol
 from scapy.all import hexdump
 from PyQt5 import QtCore, QtGui, QtWidgets
 
