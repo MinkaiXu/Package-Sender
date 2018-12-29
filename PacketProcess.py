@@ -1,8 +1,8 @@
 '''a packet process library'''
 
 '''
-int to hex can translate int numbers into hexstrings
-type(num) is int, halfbytes shoule be the number of halfbytes(4bit) the result has
+this function can translate int numbers into hexstrings
+number is int
 '''
 def inttohex(num,halfbytes):
     tmp = hex(num)
@@ -10,11 +10,10 @@ def inttohex(num,halfbytes):
     length = len(tmp)
     return ((halfbytes-length) * "0" + tmp).upper()
 
-#print inttohex(1,4)
-#result should be "0001"
+
 
 '''
-addresstohex can translate ipaddress like "127.0.0.1" into hexforms(string) 
+this function can translate ip_address like "127.0.0.1" into hex(string) 
 '''
 def addresstohex(st):
     tmp = st.split(".")
@@ -23,12 +22,11 @@ def addresstohex(st):
         s = s + inttohex(int(i),2)
     return s.upper()
 
-#print addresstohex("192.168.1.102")
-#result shoule be "C0A80166"
+
 
 '''
-hexinput can translate hexstring into real asc bytes
-for example, '97' to '\x97'
+this function can translate hexstring into real asc bytes
+for example, '96' to '\x96'
 '''
 def hexinput(data):
     length = len(data)
@@ -40,8 +38,7 @@ def hexinput(data):
         outcome += chr(int(s,16))
     return outcome
 
-#print hexinput("3b782190eeff00a0")
-#result shoule translate '973b' as '\x97\x3b', etc
+
 
 '''
     hexouput() is the reverse of hexinput()
@@ -56,19 +53,13 @@ def hexoutput(data):
     return feedback
 
 '''
-stupidDescodeMac can translate standard MAC inputs into bytes form
+Mac_decode can translate standard MAC inputs into bytes form
 '''
-def stupidDecodeMac(s):
+def Mac_decode(s):
     feedback = ''
     for i in range(len(s)):
         if (s[i].isalnum()):
             feedback += s[i]
     return feedback.upper()
 
-#print stupidDecodeMac("bb:bc:aa:00:ff:04")
-#result should be "BBBCAA00FF04"
 
-'''
-print hexinput("746869736973666F7269636D707465737")
-print hexoutput("thisisforicmptest")
-'''

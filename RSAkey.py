@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'rsakeygen.ui'
+# Form implementation generated from reading ui file 'rsakey.ui'
 #
-# Created by: PyQt5 UI code generator 5.7.1
+# Created: Fri Dec 14 20:36:15 2018
+#      by: PyQt5 UI code generator 5.3.2
 #
 # WARNING! All changes made in this file will be lost!
 from Cryp import *
@@ -94,6 +95,6 @@ class Ui_rsakeygen(object):
             self.label_4.setVisible(False)
             self.label_5.setVisible(True)
         else:
-            PackContentRSAkeygen(self.rsakeyfilename.text())
+            RSAkey(self.rsakeyfilename.text())
             self.label_4.setVisible(True)
             self.label_5.setVisible(False)

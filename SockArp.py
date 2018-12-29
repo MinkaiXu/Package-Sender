@@ -25,8 +25,8 @@ class sockARP(object):
                              self.ARP_ProtoSize, self.ARP_OPcode)
         HSrcIP = struct.pack("!4s", socket.inet_aton(self.ARP_SrcIP))
         HDstIP = struct.pack("!4s", socket.inet_aton(self.ARP_DstIP))
-        HSrcMac = hexinput(stupidDecodeMac(self.ARP_SrcMac))
-        HDstMac = hexinput(stupidDecodeMac(self.ARP_DstMac))
+        HSrcMac = hexinput(Mac_decode(self.ARP_SrcMac))
+        HDstMac = hexinput(Mac_decode(self.ARP_DstMac))
         return HPart1 + HSrcMac + HSrcIP + HDstMac + HDstIP
 
     def decode(self):
@@ -71,11 +71,11 @@ class sockARP(object):
             s = s + "(Other) "
         s = s + "(" + inttohex(self.ARP_OPcode, 4) + ")\n"
         s = s + "\t Sender MAC Address : " + self.ARP_SrcMac + \
-            "(" + stupidDecodeMac(self.ARP_SrcMac) + ") \n"
+            "(" + Mac_decode(self.ARP_SrcMac) + ") \n"
         s = s + "\t Sender IP Address : " + self.ARP_SrcIP + \
             "(" + addresstohex(self.ARP_SrcIP) + ") \n"
         s = s + "\t Target MAC Address : " + self.ARP_DstMac + \
-            "(" + stupidDecodeMac(self.ARP_DstMac) + ") \n"
+            "(" + Mac_decode(self.ARP_DstMac) + ") \n"
         s = s + "\t Target IP Address : " + self.ARP_DstIP + \
             "(" + addresstohex(self.ARP_DstIP) + ") \n"
         return s

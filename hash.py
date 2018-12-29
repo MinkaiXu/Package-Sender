@@ -2,7 +2,8 @@
 
 # Form implementation generated from reading ui file 'hash.ui'
 #
-# Created by: PyQt5 UI code generator 5.7.1
+# Created: Fri Dec 14 20:36:15 2018
+#      by: PyQt5 UI code generator 5.3.2
 #
 # WARNING! All changes made in this file will be lost!
 from Cryp import *
@@ -80,4 +81,4 @@ class Ui_hash(object):
         if(self.hashdata.toPlainText() == ''):
             self.hashresult.append("No data to be hashed!")
         else:
-            self.hashresult.setText(PackContentSha256(self.hashdata.toPlainText()))
+            self.hashresult.setText(Hash_SHA256(self.hashdata.toPlainText()))

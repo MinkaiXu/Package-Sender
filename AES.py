@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'aes.ui'
+# Form implementation generated from reading ui file 'AES.ui'
 #
-# Created by: PyQt5 UI code generator 5.7.1
+# Created: Fri Dec 14 20:36:15 2018
+#      by: PyQt5 UI code generator 5.3.2
 #
 # WARNING! All changes made in this file will be lost!
 from Cryp import *
@@ -152,7 +153,7 @@ class Ui_aes(object):
                 self.aesdataencrypted.append("Empty Input data!")
             else:
                 try:
-                    self.aesdataencrypted.setText(PackContentAES(self.aesdata.toPlainText(),
+                    self.aesdataencrypted.setText(AES_encrypt(self.aesdata.toPlainText(),
                                                              self.aeskey.toPlainText(),
                                                              self.aesiv.toPlainText()))
                 except:
@@ -171,7 +172,7 @@ class Ui_aes(object):
                 self.aesdata.append("Empty Input data!")
             else:
                 try:
-                    self.aesdata.setText(PackContentAESdecry(self.aesdataencrypted.toPlainText(),
+                    self.aesdata.setText(AES_decrypt(self.aesdataencrypted.toPlainText(),
                                                     self.aeskey.toPlainText(),
                                                     self.aesiv.toPlainText()))
                 except:

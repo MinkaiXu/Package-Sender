@@ -2,7 +2,7 @@ from scapy.all import *
 import SockArp,SockIcmp,SockUdp,SockTcp,SockPcap,SockIp,socket
 
 '''
-    decide the read packet(Ethernet) packs which upper protocol
+    decide the upper protocol
     return: arp 1, ip 2, icmp 3, tcp 4, udp 5 
 '''
 def decideProtol(packet):
@@ -20,29 +20,29 @@ def decideProtol(packet):
         return 0
 
 '''
-    this function can return the DIY class of five protocols
+    this function can return the new class of five protocols
 '''
 
-def BringNewLife(packet):
+def new(packet):
     packType = decideProtol(packet)
     if packType == 1:
-        return BringNewLifeARP(packet)
+        return newARP(packet)
     elif packType == 2:
-        return BringNewLifeIP(packet)
+        return newIP(packet)
     elif packType == 3:
-        return BringNewLifeICMP(packet)
+        return newICMP(packet)
     elif packType == 4:
-        return BringNewLifeTCP(packet)
+        return newTCP(packet)
     elif packType == 5:
-        return BringNewLifeUDP(packet)
+        return newUDP(packet)
     else:
         return 0
 
 
 '''
-    BringNewLifeARP can return the DIY class of ARP
+    newARP can return the new class of ARP
 '''
-def BringNewLifeARP(packet):
+def newARP(packet):
     feedback = SockArp.sockARP()
     feedback.ARP_HardType = packet.payload.hwtype
     feedback.ARP_ProtoType = packet.payload.ptype
@@ -57,9 +57,9 @@ def BringNewLifeARP(packet):
 
 
 '''
-    BringNewLifeIP can return the DIY class of IP
+    newIP can return the new class of IP
 '''
-def BringNewLifeIP(packet):
+def newIP(packet):
     feedback = SockIp.sockIP()
     feedback.IP_Version = packet.payload.version
     feedback.IP_HeadLen = packet.payload.ihl * 4
@@ -92,9 +92,9 @@ def BringNewLifeIP(packet):
 
 
 '''
-    BringNewLifeICMP can return the DIY class of ICMP
+   newICMP can return the new class of ICMP
 '''
-def BringNewLifeICMP(packet):
+def newICMP(packet):
     feedback = SockIcmp.sockICMP()
     feedback.ICMP_src = packet.payload.src
     feedback.ICMP_dst = packet.payload.dst
@@ -114,9 +114,9 @@ def BringNewLifeICMP(packet):
 
 
 '''
-    BringNewLifeTCP can return the DIY class of TCP
+    newTCP can return the new class of TCP
 '''
-def BringNewLifeTCP(packet):
+def newTCP(packet):
     feedback = SockTcp.sockTCP()
     feedback.TCP_SrcPort = packet.payload.payload.sport
     feedback.TCP_DstPort = packet.payload.payload.dport
@@ -146,9 +146,9 @@ def BringNewLifeTCP(packet):
 
 
 '''
-    BringNewLifeUDP can return the DIY class of UDP
+    newUDP can return the new class of UDP
 '''
-def BringNewLifeUDP(packet):
+def newUDP(packet):
     feedback = SockUdp.sockUDP()
     feedback.IP_src = packet.payload.src
     feedback.IP_dst = packet.payload.dst

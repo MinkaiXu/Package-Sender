@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'readprap.ui'
+# Form implementation generated from reading ui file 'readfile.ui'
 #
-# Created by: PyQt5 UI code generator 5.7.1
+# Created: Fri Dec 14 20:36:15 2018
+#      by: PyQt5 UI code generator 5.3.2
 #
 # WARNING! All changes made in this file will be lost!
 
 import PCAPfilter,SockPcap
-from Sniffer import BringNewLife,decideProtol
+from Sniffer import new,decideProtol
 from scapy.all import hexdump
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -313,7 +314,7 @@ class Ui_readpcap(object):
                 index = self.get_packet_index.index(num)
                 self.packet = self.get_packet[index]
                 self.packet_protocol = decideProtol(self.packet)
-                self.packet = BringNewLife(self.packet)
+                self.packet = new(self.packet)
                 self.pcapdisplay.setText(self.packet.decode() + "\n\n" + hexdump(self.packet.pack(), 1))
 
     def packet_send(self):
