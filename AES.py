@@ -9,6 +9,7 @@
 from Cryp import *
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+
 class Ui_aes(object):
     def setupUi(self, aes):
         aes.setObjectName("aes")
@@ -68,7 +69,7 @@ class Ui_aes(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(10)
-        #font.setItalic(True)
+        # font.setItalic(True)
         font.setBold(False)
         font.setWeight(65)
         self.label_5.setFont(font)
@@ -124,7 +125,7 @@ class Ui_aes(object):
         self.retranslateUi(aes)
         QtCore.QMetaObject.connectSlotsByName(aes)
 
-        #trigger written
+        # trigger written
         self.encry.clicked.connect(self.fuc_encry)
         self.decry.clicked.connect(self.fuc_decry)
         self.clear.clicked.connect(self.aesdata.clear)
@@ -141,8 +142,9 @@ class Ui_aes(object):
         self.label_6.setText(_translate("aes", "加密后 / 未解密的数据:"))
         self.encry.setText(_translate("aes", "加密"))
         self.decry.setText(_translate("aes", "解密"))
-        self.clear.setText(_translate("aes","清零"))
-    #function written
+        self.clear.setText(_translate("aes", "清零"))
+    # function written
+
     def fuc_encry(self):
         try:
             if(self.aeskey.toPlainText() == ''):
@@ -154,10 +156,10 @@ class Ui_aes(object):
             else:
                 try:
                     self.aesdataencrypted.setText(AES_encrypt(self.aesdata.toPlainText(),
-                                                             self.aeskey.toPlainText(),
-                                                             self.aesiv.toPlainText()))
+                                                              self.aeskey.toPlainText(),
+                                                              self.aesiv.toPlainText()))
                 except:
-                    self.aesdataencrypted.setText("The length of Key or IV is invalid!\n"+\
+                    self.aesdataencrypted.setText("The length of Key or IV is invalid!\n" +
                                                   "or\nInput is not hex")
         except:
             self.aesdata.setText("Key and IV must be hex!")
@@ -173,8 +175,8 @@ class Ui_aes(object):
             else:
                 try:
                     self.aesdata.setText(AES_decrypt(self.aesdataencrypted.toPlainText(),
-                                                    self.aeskey.toPlainText(),
-                                                    self.aesiv.toPlainText()))
+                                                     self.aeskey.toPlainText(),
+                                                     self.aesiv.toPlainText()))
                 except:
                     self.aesdata.setText("The length of Key or IV is invalid!")
         except:

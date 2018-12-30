@@ -9,6 +9,7 @@
 from Cryp import *
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+
 class Ui_hash(object):
     def setupUi(self, hash):
         hash.setObjectName("hash")
@@ -63,7 +64,7 @@ class Ui_hash(object):
         self.retranslateUi(hash)
         QtCore.QMetaObject.connectSlotsByName(hash)
 
-        #trigger written
+        # trigger written
         self.hashbutton.clicked.connect(self.fuc_hash)
         self.clear.clicked.connect(self.hashdata.clear)
         self.clear.clicked.connect(self.hashresult.clear)
@@ -74,8 +75,8 @@ class Ui_hash(object):
         self.label.setText(_translate("hash", "未加密数据:"))
         self.label_2.setText(_translate("hash", "加密的数据:"))
         self.hashbutton.setText(_translate("hash", "哈希\n"
-"加密"))
-        self.clear.setText(_translate("hash","清零"))
+                                           "加密"))
+        self.clear.setText(_translate("hash", "清零"))
 
     def fuc_hash(self):
         if(self.hashdata.toPlainText() == ''):

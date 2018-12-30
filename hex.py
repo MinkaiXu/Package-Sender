@@ -6,21 +6,25 @@
 #      by: PyQt5 UI code generator 5.3.2
 #
 # WARNING! All changes made in this file will be lost!
-from PacketProcess import hexinput,hexoutput
+from PacketProcess import hexinput, hexoutput
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_hex(object):
     def setupUi(self, hex):
         hex.setObjectName("hex")
         hex.resize(802, 482)
         self.hexdata = QtWidgets.QTextEdit(hex)
-        self.hexdata.setGeometry(QtCore.QRect(60,60,481,141))#20, 60, 321, 391
+        self.hexdata.setGeometry(QtCore.QRect(
+            60, 60, 481, 141))  # 20, 60, 321, 391
         self.hexdata.setObjectName("hexdata")
         self.hexstrdata = QtWidgets.QTextEdit(hex)
-        self.hexstrdata.setGeometry(QtCore.QRect(60, 270, 481, 141))#460, 60, 321, 391
+        self.hexstrdata.setGeometry(QtCore.QRect(
+            60, 270, 481, 141))  # 460, 60, 321, 391
         self.hexstrdata.setObjectName("hexstrdata")
         self.stringbutton = QtWidgets.QPushButton(hex)
-        self.stringbutton.setGeometry(QtCore.QRect(570, 110, 180, 51))#350, 160, 101, 51
+        self.stringbutton.setGeometry(QtCore.QRect(
+            570, 110, 180, 51))  # 350, 160, 101, 51
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(10)
@@ -29,7 +33,8 @@ class Ui_hex(object):
         self.stringbutton.setFont(font)
         self.stringbutton.setObjectName("stringbutton")
         self.hexbutton = QtWidgets.QPushButton(hex)
-        self.hexbutton.setGeometry(QtCore.QRect(570,320,180,51))#350, 270, 101, 51
+        self.hexbutton.setGeometry(QtCore.QRect(
+            570, 320, 180, 51))  # 350, 270, 101, 51
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(10)
@@ -38,7 +43,8 @@ class Ui_hex(object):
         self.hexbutton.setFont(font)
         self.hexbutton.setObjectName("hexbutton")
         self.clear = QtWidgets.QPushButton(hex)
-        self.clear.setGeometry(QtCore.QRect(570, 217, 180, 51))  # 350, 270, 101, 51
+        self.clear.setGeometry(QtCore.QRect(
+            570, 217, 180, 51))  # 350, 270, 101, 51
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(10)
@@ -47,7 +53,8 @@ class Ui_hex(object):
         self.clear.setFont(font)
         self.clear.setObjectName("clear")
         self.label = QtWidgets.QLabel(hex)
-        self.label.setGeometry(QtCore.QRect(60,20,171,31))#20, 20, 211, 31
+        self.label.setGeometry(QtCore.QRect(
+            60, 20, 171, 31))  # 20, 20, 211, 31
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(12)
@@ -56,7 +63,8 @@ class Ui_hex(object):
         self.label.setFont(font)
         self.label.setObjectName("label")
         self.label_6 = QtWidgets.QLabel(hex)
-        self.label_6.setGeometry(QtCore.QRect(60,220,171,31))#460, 20, 171, 31
+        self.label_6.setGeometry(QtCore.QRect(
+            60, 220, 171, 31))  # 460, 20, 171, 31
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(12)
@@ -68,7 +76,7 @@ class Ui_hex(object):
         self.retranslateUi(hex)
         QtCore.QMetaObject.connectSlotsByName(hex)
 
-        #trigger written
+        # trigger written
         self.hexbutton.clicked.connect(self.fuc_hexdata)
         self.stringbutton.clicked.connect(self.fuc_strdata)
         self.clear.clicked.connect(self.hexdata.clear)
@@ -81,7 +89,7 @@ class Ui_hex(object):
         self.hexbutton.setText(_translate("hex", "字符串->16进制"))
         self.label.setText(_translate("hex", "16进制数据:"))
         self.label_6.setText(_translate("hex", "字符串数据:"))
-        self.clear.setText(_translate("hex","清零"))
+        self.clear.setText(_translate("hex", "清零"))
 
     def fuc_hexdata(self):
         if(self.hexstrdata.toPlainText() == ''):

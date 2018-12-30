@@ -7,10 +7,12 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-import PCAPfilter,SockPcap
-from Sniffer import new,decideProtol
+import PCAPfilter
+import SockPcap
+from Sniffer import new, decideProtol
 from scapy.all import hexdump
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_readpcap(object):
     def setupUi(self, readpcap):
@@ -212,12 +214,12 @@ class Ui_readpcap(object):
         self.pcapsrcip.setText(_translate("readpcap", "源IP地址"))
         self.label_3.setText(_translate("readpcap", "选择要发送的数据包编号："))
 
-    #functions written
+    # functions written
     def seekfile(self):
-        self.filename,_ = QtWidgets.QFileDialog.getOpenFileName(None,
-                                                           "选择读取文件",
-                                                           "",
-                                                           "All files(*)")
+        self.filename, _ = QtWidgets.QFileDialog.getOpenFileName(None,
+                                                                 "选择读取文件",
+                                                                 "",
+                                                                 "All files(*)")
         self.pcapfilename.setText(self.filename)
 
     def packet_filter(self):
@@ -226,11 +228,12 @@ class Ui_readpcap(object):
         if (self.filename == ''):
             self.pcapdisplaydigest.setText("No Filename")
         else:
-            tmp = SockPcap.PCAPread(self.filename,0,400)
+            tmp = SockPcap.PCAPread(self.filename, 0, 400)
             if (self.pcapip.isChecked()):
                 ip = PCAPfilter.filterIP(tmp)
                 flag = 1
-            else: ip = []
+            else:
+                ip = []
             if (self.pcaptcp.isChecked()):
                 tcp = PCAPfilter.filterTCP(tmp)
                 flag = 1
@@ -252,34 +255,38 @@ class Ui_readpcap(object):
             else:
                 arp = []
 
-            if((self.pcapsrcip.isChecked()) and (self.pcapsrcipread.text()!='')):
-                srcip = PCAPfilter.filterSrcIP(tmp,self.pcapsrcipread.text())
+            if((self.pcapsrcip.isChecked()) and (self.pcapsrcipread.text() != '')):
+                srcip = PCAPfilter.filterSrcIP(tmp, self.pcapsrcipread.text())
                 flag = 1
-            else:srcip = []
+            else:
+                srcip = []
             if ((self.pcapdstip.isChecked()) and (self.pcapdstipread.text() != '')):
                 dstip = PCAPfilter.filterDstIP(tmp, self.pcapdstipread.text())
                 flag = 1
             else:
                 dstip = []
             if ((self.pcapsrcport.isChecked()) and (self.pcapsrcportread.text() != '')):
-                srcport = PCAPfilter.filterSrcPort(tmp, int(self.pcapsrcportread.text()))
+                srcport = PCAPfilter.filterSrcPort(
+                    tmp, int(self.pcapsrcportread.text()))
                 flag = 1
             else:
                 srcport = []
             if ((self.pcapdstport.isChecked()) and (self.pcapdstportread.text() != '')):
-                dstport = PCAPfilter.filterDstPort(tmp, int(self.pcapdstportread.text()))
+                dstport = PCAPfilter.filterDstPort(
+                    tmp, int(self.pcapdstportread.text()))
                 flag = 1
             else:
                 dstport = []
             if ((self.pcapdata.isChecked()) and (self.pcapdataread.toPlainText() != '')):
-                data = PCAPfilter.filterData(tmp, self.pcapdataread.toPlainText())
+                data = PCAPfilter.filterData(
+                    tmp, self.pcapdataread.toPlainText())
                 flag = 1
             else:
                 data = []
 
-            self.get_packet_index = list(set(ip)|set(tcp)|set(udp)|set(icmp)|set(arp)
-                              |set(srcip)|set(dstip)|set(srcport)|set(dstport)
-                              |set(data))
+            self.get_packet_index = list(set(ip) | set(tcp) | set(udp) | set(icmp) | set(arp)
+                                         | set(srcip) | set(dstip) | set(srcport) | set(dstport)
+                                         | set(data))
             self.get_packet_index.sort()
 
             if(flag):
@@ -289,7 +296,7 @@ class Ui_readpcap(object):
                     j = 0
                     for i in self.get_packet_index:
                         self.pcapdisplaydigest.append(str(i) + ': \n' +
-                                                  packet_digest[j] + '\n')
+                                                      packet_digest[j] + '\n')
                         j = j + 1
                 else:
                     self.pcapdisplaydigest.append("No match item!")
@@ -315,7 +322,8 @@ class Ui_readpcap(object):
                 self.packet = self.get_packet[index]
                 self.packet_protocol = decideProtol(self.packet)
                 self.packet = new(self.packet)
-                self.pcapdisplay.setText(self.packet.decode() + "\n\n" + hexdump(self.packet.pack(), 1))
+                self.pcapdisplay.setText(self.packet.decode(
+                ) + "\n\n" + hexdump(self.packet.pack(), 1))
 
     def packet_send(self):
         if(self.packet == ''):

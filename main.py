@@ -10,7 +10,13 @@ from RSAencryption import *
 from RSAsignature import *
 from hex import *
 from exit import *
-import SockIcmp,SockArp,SockUdp,SockTcp,SockIp,SockPcap
+import SockIcmp
+import SockArp
+import SockUdp
+import SockTcp
+import SockIp
+import SockPcap
+
 
 def appendfile():
     if (gui.packet == 0):
@@ -27,23 +33,23 @@ def appendfile():
         save_in_file.label_5.setVisible(False)
         save_in_file.label_6.setVisible(False)
 
+
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
 
-    #main window
+    # main window
     gui = Ui_MainWindow()
     mainwin = QtWidgets.QMainWindow()
     gui.setupUi(mainwin)
 
-    #save in PCAP window
+    # save in PCAP window
     save_in_file = Ui_saveInFile()
     save_in_file_dialog = QtWidgets.QDialog()
     save_in_file.setupUi(save_in_file_dialog)
     gui.actionSave_in_PCAP.triggered.connect(save_in_file_dialog.show)
     save_in_file.fileappend.clicked.connect(appendfile)
 
-
-    #read from PCAP window
+    # read from PCAP window
     read_from_pcap = Ui_readpcap()
     read_from_pcap_widget = QtWidgets.QWidget()
     read_from_pcap.setupUi(read_from_pcap_widget)
@@ -58,19 +64,19 @@ if __name__ == "__main__":
     exit_all.pushButton_2.clicked.connect(mainwin.close)
     exit_all.pushButton_2.clicked.connect(exit_all_widget.close)
 
-    #AES encryption window
+    # AES encryption window
     aes_encryption = Ui_aes()
     aes_encryption_widget = QtWidgets.QWidget()
     aes_encryption.setupUi(aes_encryption_widget)
     gui.actionAES_encryption.triggered.connect(aes_encryption_widget.show)
 
-    #Hash(SHA256) window
+    # Hash(SHA256) window
     hash_sha256 = Ui_hash()
     hash_sha256_widget = QtWidgets.QWidget()
     hash_sha256.setupUi(hash_sha256_widget)
     gui.actionHash_SHA256.triggered.connect(hash_sha256_widget.show)
 
-    #RSA key gen window
+    # RSA key gen window
     rsa_key_gen = Ui_rsakeygen()
     rsa_key_gen_widget = QtWidgets.QWidget()
     rsa_key_gen.setupUi(rsa_key_gen_widget)
@@ -93,8 +99,6 @@ if __name__ == "__main__":
     hex_widget = QtWidgets.QWidget()
     hex.setupUi(hex_widget)
     gui.actionHEX_input_and_output.triggered.connect(hex_widget.show)
-
-
 
     mainwin.show()
     sys.exit(app.exec_())

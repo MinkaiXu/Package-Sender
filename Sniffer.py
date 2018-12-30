@@ -1,10 +1,18 @@
 from scapy.all import *
-import SockArp,SockIcmp,SockUdp,SockTcp,SockPcap,SockIp,socket
+import SockArp
+import SockIcmp
+import SockUdp
+import SockTcp
+import SockPcap
+import SockIp
+import socket
 
 '''
     decide the read packet(Ethernet) packs which upper protocol
     return: arp 1, ip 2, icmp 3, tcp 4, udp 5 
 '''
+
+
 def decideProtol(packet):
     if packet.type == 0x0806:
         return 1
@@ -19,9 +27,11 @@ def decideProtol(packet):
     else:
         return 0
 
+
 '''
     this function can return the new class of five protocols
 '''
+
 
 def new(packet):
     packType = decideProtol(packet)
@@ -42,6 +52,8 @@ def new(packet):
 '''
     BringNewLifeARP can return the new class of ARP
 '''
+
+
 def newARP(packet):
     feedback = SockArp.sockARP()
     feedback.ARP_HardType = packet.payload.hwtype
@@ -59,6 +71,8 @@ def newARP(packet):
 '''
     BringNewLifeIP can return the new class of IP
 '''
+
+
 def newIP(packet):
     feedback = SockIp.sockIP()
     feedback.IP_Version = packet.payload.version
@@ -94,6 +108,8 @@ def newIP(packet):
 '''
     BringNewLifeICMP can return the new class of ICMP
 '''
+
+
 def newICMP(packet):
     feedback = SockIcmp.sockICMP()
     feedback.ICMP_src = packet.payload.src
@@ -108,14 +124,17 @@ def newICMP(packet):
         feedback.extralen = 16
     else:
         feedback.extralen = 0
-    feedback.ICMP_extrahead = str(packet.payload.payload)[4:4+feedback.extralen]
-    feedback.ICMP_data = str(packet.payload.payload)[4 + feedback.extralen : ]
+    feedback.ICMP_extrahead = str(packet.payload.payload)[
+        4:4+feedback.extralen]
+    feedback.ICMP_data = str(packet.payload.payload)[4 + feedback.extralen:]
     return feedback
 
 
 '''
     BringNewLifeTCP can return the new class of TCP
 '''
+
+
 def newTCP(packet):
     feedback = SockTcp.sockTCP()
     feedback.TCP_SrcPort = packet.payload.payload.sport
@@ -141,13 +160,16 @@ def newTCP(packet):
     feedback.TCP_Data = str(packet.payload.payload)[4*feedback.TCP_Offset:]
     feedback.IP_src = packet.payload.src
     feedback.IP_dst = packet.payload.dst
-    feedback.IP_Header = SockIp.sockIP(feedback.IP_src, feedback.IP_dst, "", socket.IPPROTO_TCP)
+    feedback.IP_Header = SockIp.sockIP(
+        feedback.IP_src, feedback.IP_dst, "", socket.IPPROTO_TCP)
     return feedback
 
 
 '''
     BringNewLifeUDP can return the new class of UDP
 '''
+
+
 def newUDP(packet):
     feedback = SockUdp.sockUDP()
     feedback.IP_src = packet.payload.src
@@ -156,14 +178,7 @@ def newUDP(packet):
     feedback.UDP_DstPort = packet.payload.payload.dport
     feedback.UDP_Length = packet.payload.payload.len
     feedback.UDP_CheckSum = packet.payload.payload.chksum
-    feedback.IP_Header = SockIp.sockIP(feedback.IP_src, feedback.IP_dst, "", socket.IPPROTO_UDP)
+    feedback.IP_Header = SockIp.sockIP(
+        feedback.IP_src, feedback.IP_dst, "", socket.IPPROTO_UDP)
     feedback.UDP_Data = str(packet.payload.payload)[8:]
     return feedback
-
-
-
-
-
-
-
-

@@ -9,6 +9,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+
 class Ui_saveInFile(object):
     def setupUi(self, saveInFile):
         saveInFile.setObjectName("saveInFile")
@@ -74,20 +75,18 @@ class Ui_saveInFile(object):
         self.label_5.setText(_translate("saveInFile", "无数据包!"))
         self.label_6.setText(_translate("saveInFile", "无指定文件!"))
 
-        #setting written
+        # setting written
         self.label_4.setVisible(False)
         self.label_5.setVisible(False)
         self.label_6.setVisible(False)
 
-    #functions written
+    # functions written
     def seekfile(self):
-        self.filename,_ = QtWidgets.QFileDialog.getOpenFileName(None,
-                                                           "选择保存文件",
-                                                           "",
-                                                           "All files(*)")
+        self.filename, _ = QtWidgets.QFileDialog.getOpenFileName(None,
+                                                                 "选择保存文件",
+                                                                 "",
+                                                                 "All files(*)")
         self.lineEdit.setText(self.filename)
         self.label_4.setVisible(False)
         self.label_5.setVisible(False)
         self.label_6.setVisible(False)
-
-

@@ -9,6 +9,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+
 class Ui_exit(object):
     def setupUi(self, exit):
         exit.setObjectName("exit")
@@ -36,5 +37,5 @@ class Ui_exit(object):
         self.pushButton.setText(_translate("exit", "Save "))
         self.pushButton_2.setText(_translate("exit", "Not Save"))
         self.pushButton_3.setText(_translate("exit", "Cancel"))
-        self.label.setText(_translate("exit", "Warning:You haven\'t saved the package!"))
-
+        self.label.setText(_translate(
+            "exit", "Warning:You haven\'t saved the package!"))
