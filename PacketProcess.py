@@ -24,6 +24,7 @@ def addresstohex(st):
 
 
 
+
 '''
 this function can translate hexstring into real asc bytes
 for example, '96' to '\x96'
@@ -62,4 +63,10 @@ def Mac_decode(s):
             feedback += s[i]
     return feedback.upper()
 
+#print stupidDecodeMac("bb:bc:aa:00:ff:04")
+#result should be "BBBCAA00FF04"
 
+'''
+print hexinput("746869736973666F7269636D707465737")
+print hexoutput("thisisforicmptest")
+'''

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'rsaencry.ui'
+# Form implementation generated from reading ui file 'rsa_encry.ui'
 #
 # Created: Fri Dec 14 20:36:15 2018
 #      by: PyQt5 UI code generator 5.3.2
@@ -153,7 +153,7 @@ class Ui_rsaencrypt(object):
             elif(self.rsadata.toPlainText() == ''):
                 self.rsadataencrypted.append("No data")
             else:
-                self.rsadataencrypted.setText(PackContentRSA(str(self.rsapubkeyfile.text()),
+                self.rsadataencrypted.setText(RSA_encrypt(str(self.rsapubkeyfile.text()),
                                                          str(self.rsadata.toPlainText())))
         except:
             self.rsadata.setText("Please input hex data!"+"\n"+\
@@ -165,6 +165,6 @@ class Ui_rsaencrypt(object):
         elif (self.rsadataencrypted.toPlainText() == ''):
             self.rsadata.append("No data")
         else:
-            self.rsadata.setText(PackContentRSAdecry(str(self.rsaprikeyfile.text()),
+            self.rsadata.setText(RSA_decrypt(str(self.rsaprikeyfile.text()),
                                                      str(self.rsadataencrypted.toPlainText())))
 

@@ -7,10 +7,9 @@ from Crypto.Cipher import PKCS1_v1_5 as Cipher_pkcs1_v1_5
 from Crypto.Signature import PKCS1_v1_5 as Signature_pkcs1_v1_5
 from Crypto.PublicKey import RSA
 '''
-    AES_encrypt encrypt a message by AES algorithm
-    requirements:
-    1)iv (16 bytes)
-    2)key (16,24,32 bytes)
+    AES_encrypt can encrypt a message by AES
+    iv :16 bytes
+    key : 16,24,32 bytes
 '''
 def AES_encrypt(message,key,iv,mode = AES.MODE_CBC):
     key = hexinput(key)
@@ -23,8 +22,8 @@ def AES_encrypt(message,key,iv,mode = AES.MODE_CBC):
     return hexoutput(ciphertext)
 '''
     AES_decrypt can decrypt a message by AES
-    iv should be 16 bytes
-    key should be 16,24,32 bytes
+    iv : 16 bytes
+    key: 16,24,32 bytes
 '''
 def AES_decrypt(ciphertext,key,iv,mode=AES.MODE_CBC):
     key = hexinput(key)
@@ -38,7 +37,7 @@ def AES_decrypt(ciphertext,key,iv,mode=AES.MODE_CBC):
 
 
 '''
-   Hash_SHA256 encode a content with hash algorithm
+    Hash_SHA256 can hash a content
 '''
 def Hash_SHA256(content):
     h = SHA256.new()
@@ -49,7 +48,7 @@ def Hash_SHA256(content):
 '''
     RSAkey can generate a pair of rsa key
     and store public key in     filename + '-public.pem'
-        store private key in     filename + '-private.pem'
+              private key in     filename + '-private.pem'
 '''
 def RSAkey(filename):
     # random generater
@@ -66,7 +65,7 @@ def RSAkey(filename):
     return 0
 
 '''
-    RSA_encrypt can encrypt a message with loaded public key 
+    RSA_encrypt can encrypt a message with public key
 '''
 def RSA_encrypt(filename,message):
     message = hexinput(message)
@@ -77,7 +76,7 @@ def RSA_encrypt(filename,message):
         return hexoutput(cipher.encrypt(message))
 
 '''
-    RSA_decrypt can decrypt a message with loaded private key
+    RSA_decrypt can decrypt a message with private key
 '''
 def RSA_decrypt(filename,message):
     with open(filename) as f:

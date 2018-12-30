@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'rsakey.ui'
+# Form implementation generated from reading ui file 'rsa_key.ui'
 #
 # Created: Fri Dec 14 20:36:15 2018
 #      by: PyQt5 UI code generator 5.3.2

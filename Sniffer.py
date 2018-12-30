@@ -2,7 +2,7 @@ from scapy.all import *
 import SockArp,SockIcmp,SockUdp,SockTcp,SockPcap,SockIp,socket
 
 '''
-    decide the upper protocol
+    decide the read packet(Ethernet) packs which upper protocol
     return: arp 1, ip 2, icmp 3, tcp 4, udp 5 
 '''
 def decideProtol(packet):
@@ -40,7 +40,7 @@ def new(packet):
 
 
 '''
-    newARP can return the new class of ARP
+    BringNewLifeARP can return the new class of ARP
 '''
 def newARP(packet):
     feedback = SockArp.sockARP()
@@ -57,7 +57,7 @@ def newARP(packet):
 
 
 '''
-    newIP can return the new class of IP
+    BringNewLifeIP can return the new class of IP
 '''
 def newIP(packet):
     feedback = SockIp.sockIP()
@@ -92,7 +92,7 @@ def newIP(packet):
 
 
 '''
-   newICMP can return the new class of ICMP
+    BringNewLifeICMP can return the new class of ICMP
 '''
 def newICMP(packet):
     feedback = SockIcmp.sockICMP()
@@ -114,7 +114,7 @@ def newICMP(packet):
 
 
 '''
-    newTCP can return the new class of TCP
+    BringNewLifeTCP can return the new class of TCP
 '''
 def newTCP(packet):
     feedback = SockTcp.sockTCP()
@@ -146,7 +146,7 @@ def newTCP(packet):
 
 
 '''
-    newUDP can return the new class of UDP
+    BringNewLifeUDP can return the new class of UDP
 '''
 def newUDP(packet):
     feedback = SockUdp.sockUDP()

@@ -149,7 +149,7 @@ class Ui_rsasig(object):
             elif (self.rsasigdata.toPlainText() == ''):
                 self.rsacheckdata.append("No data")
             else:
-                self.rsacheckdata.setText(PackContentRSASig(str(self.rsaprikeyfile.text()),
+                self.rsacheckdata.setText(RSA_sig(str(self.rsaprikeyfile.text()),
                                                      str(self.rsasigdata.toPlainText())))
         except:
             self.rsasigdata.setText("Notice:Must be hex input")
@@ -162,7 +162,7 @@ class Ui_rsasig(object):
         elif (self.rsacheckdata.toPlainText() == ''):
             self.rsacheckdata.setText("No Signature")
         else:
-            flag = PackContentRSASigCheck(str(self.rsapubkeyfile.text()),
+            flag = RSA_sig_check(str(self.rsapubkeyfile.text()),
                                    str(self.rsasigdata.toPlainText()),
                                    str(self.rsacheckdata.toPlainText()))
             if(flag):
